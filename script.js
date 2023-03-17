@@ -722,7 +722,7 @@ function generatePDF() {
 
 //    doc.addImage({imageData:img, format:'png', x:10, y:80, width:35, height:35});
 
-    doc.save("SUFIIIII.pdf");
+    doc.save("OpenTeamSheet.pdf");
 }
 
 
