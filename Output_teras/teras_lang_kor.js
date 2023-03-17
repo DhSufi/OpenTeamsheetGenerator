@@ -1,0 +1,20 @@
+var korTeras = {
+    "1": "\ub178\ub9d0",
+    "2": "\ud30c\uc774\ud305",
+    "3": "\ud50c\ub77c\uc789",
+    "4": "\ud3ec\uc774\uc98c",
+    "5": "\uadf8\ub77c\uc6b4\ub4dc",
+    "6": "\ub85d",
+    "7": "\ubc84\uadf8",
+    "8": "\uace0\uc2a4\ud2b8",
+    "9": "\uc2a4\ud2f8",
+    "10": "\ud30c\uc774\uc5b4",
+    "11": "\uc6cc\ud130",
+    "12": "\uadf8\ub798\uc2a4",
+    "13": "\uc77c\ub809\ud2b8\ub9ad",
+    "14": "\uc0ac\uc774\ud0a5",
+    "15": "\uc544\uc774\uc2a4",
+    "16": "\ub4dc\ub798\uace4",
+    "17": "\ub2e4\ud06c",
+    "18": "\ud398\uc5b4\ub9ac"
+}

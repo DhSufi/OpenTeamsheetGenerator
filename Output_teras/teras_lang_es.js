@@ -1,0 +1,20 @@
+var esTeras = {
+    "1": "Normal",
+    "2": "Lucha",
+    "3": "Volador",
+    "4": "Veneno",
+    "5": "Tierra",
+    "6": "Roca",
+    "7": "Bicho",
+    "8": "Fantasma",
+    "9": "Acero",
+    "10": "Fuego",
+    "11": "Agua",
+    "12": "Planta",
+    "13": "El\u00e9ctrico",
+    "14": "Ps\u00edquico",
+    "15": "Hielo",
+    "16": "Drag\u00f3n",
+    "17": "Siniestro",
+    "18": "Hada"
+}
