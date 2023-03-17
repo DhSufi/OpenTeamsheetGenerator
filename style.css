@@ -1,16 +1,6 @@
-/*
-#hola {
-    background-image: url("../Output_pokes/GENERAL192.png");
-    background-position:-4992px -6528px;
-    width:192px;
-    height:192px;
-}
-
-*/
-
 @font-face {
     font-family: Montserrat;
-    src: url('../Fonts/Montserrat-Medium.ttf') format('truetype');
+    src: url('./Fonts/Montserrat-Medium.ttf') format('truetype');
 }
 
 body{
