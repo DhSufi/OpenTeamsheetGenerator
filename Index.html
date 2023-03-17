@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+    <img id="logo" src="logo.png">
+
+    <div id="loader" class="center"></div>
+
+    <div class="languages">
+        <div class="pool1">
+            <button id="cht" class="buttonLang" onclick="setLang(this)"><span>繁體中文</span></button>
+            <button id="jpn_kanji" class="buttonLang" onclick="setLang(this)"><span>漢字</span></button>
+            <button id="kor" class="buttonLang" onclick="setLang(this)"><span>한국어</span></button>
+            <button id="es" class="buttonLang" onclick="setLang(this)"><span>ESPAÑOL</span></button>
+            <button id="fre" class="buttonLang" onclick="setLang(this)"><span>FRANÇAIS</span></button>
+        </div>
+        <div class="pool2">
+            <button id="chs" class="buttonLang" onclick="setLang(this)"><span>简体中文</span></button>
+            <button id="jpn" class="buttonLang" onclick="setLang(this)"><span>日本語</span></button>
+            <button id="ger" class="buttonLang" onclick="setLang(this)"><span>DEUTSCH</span></button>
+            <button id="en" class="buttonLang" onclick="setLang(this)"><span>ENGLISH</span></button>
+            <button id="ita" class="buttonLang" onclick="setLang(this)"><span>ITALIANO</span></button>
+        </div>
+    </div>
+
+    <div id="pdf" class="start">
+
+        <div class="input data">
+            <div class="tournament container">
+                <input class="tournament" placeholder=" " type="text" onfocusout="lostFocus(this)" maxlength="50">
+                <label class="tournament">Tournament name</label>
+            </div>
+            <div class="player container">
+                <input class="player" placeholder=" " onfocusout="lostFocus(this)" type="text" maxlength="50">
+                <label class="player">Player name</label>
+            </div>
+            <div class="comment container">
+                <input class="comment" placeholder=" " onfocusout="lostFocus(this)" type="text" maxlength="50">
+                <label class="comment">Comments (optional)</label>
+            </div>
+        </div>
+
+        <div class="lang checkbox">
+            <div class="pool">
+                <div class="chs langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">简体中文</span>
+                </div>
+                <div class="cht langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">繁體中文</span>
+                </div>
+                <div class="en langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">ENGLISH</span>
+                </div>
+                <div class="es langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">ESPAÑOL</span>
+                </div>
+                <div class="fre langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">FRANÇAIS</span>
+                </div>
+            </div>
+            <div class="pool">
+                <div class="ger langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">DEUTSCH</span>
+                </div>
+                <div class="ita langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">ITALIANO</span>
+                </div>
+                <div class="jpn langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">日本語</span>
+                </div>
+                <div class="jpn_kanji langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">漢字</span>
+                </div>
+                <div class="kor langcheck" onclick="langChecked(this)">
+                    <img src="checkOFF.png">
+                    <span class="text">한국어</span>
+                </div>
+            </div>
+
+        </div>
+
+        <button id="print" onclick="generatePDF()"><span>PRINT SELECTED LANGUAGES</span></button>
+
+    </div>
+
+    <div id="content" class="start">
+        <div class="slots">
+            <div class="slot">
+                <div class="data">
+                    <div class="type1 sprite"></div>
+                    <div class="type2 sprite"></div>
+                    <div class="item sprite"></div>
+                    <div class="poke sprite"></div>
+                    <div class="tera sprite"></div>
+
+                    <div class="info">
+                        <div class="poke text"></div>
+                        <div class="item text"></div>
+                        <div class="ability text"></div>
+                        <div class="tera text"></div>
+                    </div>
+
+                    <div class="moves">
+                        <div class="m1">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m2">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m3">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m4">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="poke container">
+                        <button class="poke button" onclick="buttonClick(this)" role="button"><span class="text">Choose Pokémon</span></button>
+                        <input class="poke input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="poke list"></div>
+                    </div>
+
+                    <div class="ability container">
+                        <button class="ability button" onclick="buttonClick(this)" role="button"><span class="text">Choose Ability</span></button>
+                        <input class="ability input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="ability list"></div>
+                    </div>
+
+                    <div class="item container">
+                        <button class="item button" onclick="buttonClick(this)" role="button"><span class="text">Choose Item</span></button>
+                        <input class="item input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="item list"></div>
+                    </div>
+
+                    <div class="tera container">
+                        <button class="tera button" onclick="buttonClick(this)" role="button"><span class="text">Choose TeraType</span></button>
+                        <input class="tera input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="tera list"></div>
+                    </div>
+
+                    <div class="move m1 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m2 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m3 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m4 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slot" >
+                <div class="data">
+                    <div class="type1 sprite"></div>
+                    <div class="type2 sprite"></div>
+                    <div class="item sprite"></div>
+                    <div class="poke sprite"></div>
+                    <div class="tera sprite"></div>
+
+                    <div class="info">
+                        <div class="poke text"></div>
+                        <div class="item text"></div>
+                        <div class="ability text"></div>
+                        <div class="tera text"></div>
+                    </div>
+
+                    <div class="moves">
+                        <div class="m1">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m2">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m3">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m4">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="poke container">
+                        <button class="poke button" onclick="buttonClick(this)" role="button"><span class="text">Choose Pokémon</span></button>
+                        <input class="poke input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="poke list"></div>
+                    </div>
+
+                    <div class="ability container">
+                        <button class="ability button" onclick="buttonClick(this)" role="button"><span class="text">Choose Ability</span></button>
+                        <input class="ability input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="ability list"></div>
+                    </div>
+
+                    <div class="item container">
+                        <button class="item button" onclick="buttonClick(this)" role="button"><span class="text">Choose Item</span></button>
+                        <input class="item input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="item list"></div>
+                    </div>
+
+                    <div class="tera container">
+                        <button class="tera button" onclick="buttonClick(this)" role="button"><span class="text">Choose TeraType</span></button>
+                        <input class="tera input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="tera list"></div>
+                    </div>
+
+                    <div class="move m1 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m2 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m3 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m4 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slot" >
+                <div class="data">
+                    <div class="type1 sprite"></div>
+                    <div class="type2 sprite"></div>
+                    <div class="item sprite"></div>
+                    <div class="poke sprite"></div>
+                    <div class="tera sprite"></div>
+
+                    <div class="info">
+                        <div class="poke text"></div>
+                        <div class="item text"></div>
+                        <div class="ability text"></div>
+                        <div class="tera text"></div>
+                    </div>
+
+                    <div class="moves">
+                        <div class="m1">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m2">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m3">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m4">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="poke container">
+                        <button class="poke button" onclick="buttonClick(this)" role="button"><span class="text">Choose Pokémon</span></button>
+                        <input class="poke input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="poke list"></div>
+                    </div>
+
+                    <div class="ability container">
+                        <button class="ability button" onclick="buttonClick(this)" role="button"><span class="text">Choose Ability</span></button>
+                        <input class="ability input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="ability list"></div>
+                    </div>
+
+                    <div class="item container">
+                        <button class="item button" onclick="buttonClick(this)" role="button"><span class="text">Choose Item</span></button>
+                        <input class="item input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="item list"></div>
+                    </div>
+
+                    <div class="tera container">
+                        <button class="tera button" onclick="buttonClick(this)" role="button"><span class="text">Choose TeraType</span></button>
+                        <input class="tera input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="tera list"></div>
+                    </div>
+
+                    <div class="move m1 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m2 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m3 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m4 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slot" >
+                <div class="data">
+                    <div class="type1 sprite"></div>
+                    <div class="type2 sprite"></div>
+                    <div class="item sprite"></div>
+                    <div class="poke sprite"></div>
+                    <div class="tera sprite"></div>
+
+                    <div class="info">
+                        <div class="poke text"></div>
+                        <div class="item text"></div>
+                        <div class="ability text"></div>
+                        <div class="tera text"></div>
+                    </div>
+
+                    <div class="moves">
+                        <div class="m1">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m2">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m3">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m4">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="poke container">
+                        <button class="poke button" onclick="buttonClick(this)" role="button"><span class="text">Choose Pokémon</span></button>
+                        <input class="poke input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="poke list"></div>
+                    </div>
+
+                    <div class="ability container">
+                        <button class="ability button" onclick="buttonClick(this)" role="button"><span class="text">Choose Ability</span></button>
+                        <input class="ability input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="ability list"></div>
+                    </div>
+
+                    <div class="item container">
+                        <button class="item button" onclick="buttonClick(this)" role="button"><span class="text">Choose Item</span></button>
+                        <input class="item input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="item list"></div>
+                    </div>
+
+                    <div class="tera container">
+                        <button class="tera button" onclick="buttonClick(this)" role="button"><span class="text">Choose TeraType</span></button>
+                        <input class="tera input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="tera list"></div>
+                    </div>
+
+                    <div class="move m1 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m2 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m3 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m4 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slot">
+                <div class="data">
+                    <div class="type1 sprite"></div>
+                    <div class="type2 sprite"></div>
+                    <div class="item sprite"></div>
+                    <div class="poke sprite"></div>
+                    <div class="tera sprite"></div>
+
+                    <div class="info">
+                        <div class="poke text"></div>
+                        <div class="item text"></div>
+                        <div class="ability text"></div>
+                        <div class="tera text"></div>
+                    </div>
+
+                    <div class="moves">
+                        <div class="m1">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m2">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m3">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m4">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="poke container">
+                        <button class="poke button" onclick="buttonClick(this)" role="button"><span class="text">Choose Pokémon</span></button>
+                        <input class="poke input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="poke list"></div>
+                    </div>
+
+                    <div class="ability container">
+                        <button class="ability button" onclick="buttonClick(this)" role="button"><span class="text">Choose Ability</span></button>
+                        <input class="ability input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="ability list"></div>
+                    </div>
+
+                    <div class="item container">
+                        <button class="item button" onclick="buttonClick(this)" role="button"><span class="text">Choose Item</span></button>
+                        <input class="item input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="item list"></div>
+                    </div>
+
+                    <div class="tera container">
+                        <button class="tera button" onclick="buttonClick(this)" role="button"><span class="text">Choose TeraType</span></button>
+                        <input class="tera input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="tera list"></div>
+                    </div>
+
+                    <div class="move m1 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m2 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m3 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m4 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slot">
+                <div class="data">
+                    <div class="type1 sprite"></div>
+                    <div class="type2 sprite"></div>
+                    <div class="item sprite"></div>
+                    <div class="poke sprite"></div>
+                    <div class="tera sprite"></div>
+
+                    <div class="info">
+                        <div class="poke text"></div>
+                        <div class="item text"></div>
+                        <div class="ability text"></div>
+                        <div class="tera text"></div>
+                    </div>
+
+                    <div class="moves">
+                        <div class="m1">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m2">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m3">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                        <div class="m4">
+                            <div class="sprite"></div>
+                            <span class="text"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="poke container">
+                        <button class="poke button" onclick="buttonClick(this)" role="button"><span class="text">Choose Pokémon</span></button>
+                        <input class="poke input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="poke list"></div>
+                    </div>
+
+                    <div class="ability container">
+                        <button class="ability button" onclick="buttonClick(this)" role="button"><span class="text">Choose Ability</span></button>
+                        <input class="ability input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="ability list"></div>
+                    </div>
+
+                    <div class="item container">
+                        <button class="item button" onclick="buttonClick(this)" role="button"><span class="text">Choose Item</span></button>
+                        <input class="item input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="item list"></div>
+                    </div>
+
+                    <div class="tera container">
+                        <button class="tera button" onclick="buttonClick(this)" role="button"><span class="text">Choose TeraType</span></button>
+                        <input class="tera input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="tera list"></div>
+                    </div>
+
+                    <div class="move m1 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m2 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m3 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+
+                    <div class="move m4 container">
+                        <button class="move button" onclick="buttonClick(this)" role="button"><span class="text">Choose Move</span></button>
+                        <input class="move input" type="text" placeholder="Search..." onkeyup="elementFilter(this)">
+                        <div class="move list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p id="credits">
+        Thanks for the translations to:
+        <a target=”_blank” href="https://twitter.com/YihuiVGC">@YihuiVGC</a>
+        <a target=”_blank” href="https://twitter.com/NashVGC">@NashVGC</a>
+        <a target=”_blank” href="https://twitter.com/kakunaka_VGC">@Kakunaka_VGC</a>
+    </p>
+
+</body>
+
+
+    <script src="../Output_pokes/coordinates35x35p192.js"></script>
+    <script src="../Output_pokes/pokes_types.js"></script>
+    <script src="../Output_items/coordinates50x50p64.js"></script>
+    <script src="../Output_teras/coordinates18x1p60.js"></script>
+    <script src="../Output_types/coordinates18x1p24.js"></script>
+    <script src="../Output_moves/moves_types.js"></script>
+    <script src="gui_lang.js"></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="../Fonts/MultiLangFont.js"></script>
+    <script src="script.js"></script>
+
+</html>
