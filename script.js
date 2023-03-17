@@ -298,7 +298,7 @@ function chosenElement(element) {
         var x = pokesCoordinates[id][0];
         var y = pokesCoordinates[id][1];
         var Sprite = element.closest(".slot").querySelector('.poke.sprite');
-        Sprite.style.backgroundImage="url(https://drive.google.com/uc?id=1PtOCh2Bow4eedldQ_-pklbfemDjPD4h0)";
+        Sprite.style.backgroundImage="url(./Output_pokes/GENERAL35x35p192.webp)";
         Sprite.style.backgroundPosition = "-" + x + "px -" + y + "px";
         var Text = element.closest(".slot").querySelector(".info .poke.text");
         Text.innerText = name;
