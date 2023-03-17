@@ -1,10 +1,10 @@
 "use strict";
 const langFiles = [
-    "../Output_pokes/pokes_lang_",
-    "../Output_abilities/abilities_lang_",
-    "../Output_items/items_lang_",
-    "../Output_teras/teras_lang_",
-    "../Output_moves/moves_lang_"];
+    "./Output_pokes/pokes_lang_",
+    "./Output_abilities/abilities_lang_",
+    "./Output_items/items_lang_",
+    "./Output_teras/teras_lang_",
+    "./Output_moves/moves_lang_"];
 
 const langs = ['chs', 'cht', 'en', 'es', 'fre', 'ger', 'ita', 'jpn', 'jpn_kanji', 'kor'];
 const className = ['poke', 'ability', 'item', 'tera', 'move'];
@@ -289,7 +289,7 @@ function chosenElement(element) {
         var x = itemsCoordinates[id][0];
         var y = itemsCoordinates[id][1];
         var Sprite = element.closest(".slot").querySelector('.item.sprite');
-        Sprite.style.backgroundImage="url(../Output_items/GENERAL50x50p64.png)";
+        Sprite.style.backgroundImage="url(./Output_items/GENERAL50x50p64.png)";
         Sprite.style.backgroundPosition = "-" + x + "px -" + y + "px";
         var Text = element.closest(".slot").querySelector(".info .item.text");
         Text.innerText = "Item: " + name;
@@ -298,7 +298,7 @@ function chosenElement(element) {
         var x = pokesCoordinates[id][0];
         var y = pokesCoordinates[id][1];
         var Sprite = element.closest(".slot").querySelector('.poke.sprite');
-        Sprite.style.backgroundImage="url(../Output_pokes/GENERAL35x35p192.png)";
+        Sprite.style.backgroundImage="url(./Output_pokes/GENERAL35x35p192.png)";
         Sprite.style.backgroundPosition = "-" + x + "px -" + y + "px";
         var Text = element.closest(".slot").querySelector(".info .poke.text");
         Text.innerText = name;
@@ -315,7 +315,7 @@ function chosenElement(element) {
             var x = typesCoordinates[typeId][0];
             var y = typesCoordinates[typeId][1];
             var typeSprite = element.closest(".slot").querySelector(".type" + (i+1) + ".sprite");
-            typeSprite.style.backgroundImage="url(../Output_types/GENERAL18x1p24.png)";
+            typeSprite.style.backgroundImage="url(./Output_types/GENERAL18x1p24.png)";
             typeSprite.style.backgroundPosition = "-" + x + "px -" + y + "px";
 
         }
@@ -325,7 +325,7 @@ function chosenElement(element) {
         var x = terasCoordinates[id][0];
         var y = terasCoordinates[id][1];
         var Sprite = element.closest(".slot").querySelector('.tera.sprite');
-        Sprite.style.backgroundImage="url(../Output_teras/GENERAL18x1p60.png)";
+        Sprite.style.backgroundImage="url(./Output_teras/GENERAL18x1p60.png)";
         Sprite.style.backgroundPosition = "-" + x + "px -" + y + "px";
         var Text = element.closest(".slot").querySelector(".info .tera.text");
         Text.innerText = "Teratype: " + name;
@@ -341,7 +341,7 @@ function chosenElement(element) {
         var x = typesCoordinates[tid][0];
         var y = typesCoordinates[tid][1];
         var Sprite = element.closest(".slot").querySelector(".moves ." + position + " .sprite");
-        Sprite.style.backgroundImage="url(../Output_types/GENERAL18x1p24.png)";
+        Sprite.style.backgroundImage="url(./Output_types/GENERAL18x1p24.png)";
         Sprite.style.backgroundPosition = "-" + x + "px -" + y + "px";
         Text.innerText = name;
     }
